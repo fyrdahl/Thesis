@@ -1,0 +1,156 @@
+% ==================================
+% PACKAGES
+% ==================================
+
+% Make \cleardoublepage insert an empty page without a page number.
+\usepackage{emptypage} 
+\usepackage{blindtext}	% For "Lorem Ipsum" style place holders
+\usepackage{graphicx}	% For \includegraphics
+\usepackage{amsfonts}	% Math symbols
+\usepackage{amsmath}	% Math symbols
+\usepackage{amssymb}	% Math symbols
+\usepackage{pdfpages}	% To include the PDFs of the papers
+\usepackage{natbib}		% Reference in style of Natural Sciences
+\usepackage{moresize}	% Additional font sizes \HUGE and \ssmal.
+\usepackage{parskip}
+\usepackage{multicol}
+%\usepackage{pageslts}  % To calculate the total number of pages
+
+% ==================================
+% PAGE SIZE -- G5 OR E5
+% ==================================
+
+% G5 format (larger)
+%\usepackage[paperwidth=169mm,paperheight=239mm,total={13.3cm,19.6cm}, top=1.8cm, ignorehead, centering, footskip=\footskip+4mm ]{geometry}
+
+% E5 format (smaller)
+\usepackage[paperwidth=155mm,paperheight=220mm,total={12cm,18cm}, top=1.8cm, ignorehead, centering, footskip=\footskip+4mm ]{geometry}
+
+
+% ==================================
+% CONFIGURE THE FONTS
+% ==================================
+\usepackage{ifxetex}
+\usepackage{mathspec}
+\usepackage[no-math]{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\AtBeginEnvironment{tabular}{\addfontfeatures{Numbers={Monospaced}}}
+
+%
+% (1) If the font is installed in your system:
+%
+%\setmainfont{Adobe Garamond Pro}
+%\setsansfont{Frutiger LT Std 45 Light}
+%\setmathfont(Greek,Digits,Latin){Adobe Garamond Pro}
+
+%
+% (2) If the fonts in the local directory.
+%
+%\setmainfont[
+%  Ligatures=TeX,
+%  Extension=.otf,
+%  UprightFont=*-Regular,
+%  BoldFont=*-Semibold,
+%  ItalicFont=*-Italic,
+%  BoldItalicFont=*-Italic,
+%]{AGaramondPro}
+%\setsansfont{[FrutigerLTStd-Light.otf]}
+%\setmathfont(Greek,Digits,Latin){[AGaramondPro-Italic.otf]}
+
+% mathspec is broken. The next eight lines work around that.
+\usepackage{etoolbox}
+\makeatletter
+\begingroup\lccode`~=`"
+\lowercase{\endgroup
+  \everymath{\let~\eu@active@quote}
+  \everydisplay{\let~\eu@active@quote}
+}
+\makeatother
+
+
+% ==================================
+% CHAPTERS, SECTIONS, SUBSECTIONS WITHOUT NUMBERS
+% ==================================
+% define commands for chapters, sections, and subsections
+% that do not have a number, but are entered as candidates
+% for the table of contents.
+\newcommand\chap[1]{%
+  \chapter*{#1}%
+  \addcontentsline{toc}{chapter}{#1}
+  \markboth{#1}{#1}
+}
+\newcommand\sect[1]{%
+  \section*{#1}%
+  \addcontentsline{toc}{section}{#1}
+  \markright{#1}
+}
+\newcommand\subsect[1]{%
+  \subsection*{#1}%
+  \addcontentsline{toc}{subsection}{#1}
+}
+
+
+% ------------------------------------------------- %
+% ------------------------------------------------- %
+% ------------------------------------------------- %
+% ------------------------------------------------- %
+
+% Must come in the beginning. Changes the spacing in the table of contents to look more pleasing
+%\usepackage{tocloft}
+%\setlength{\cftbeforepartskip}{5.0mm}
+%\setlength{\cftbeforechapskip}{2.0mm}
+%\setlength{\cftbeforesecskip}{0.0mm}
+
+% figure captions in bold (i.e. "Figure 1" in bold), sans serif, smaller font size, hanging label, always starting on the left side
+%\usepackage{subfig}
+%\DeclareCaptionFont{ssmall}{\ssmall}
+%\DeclareCaptionFont{tiny}{\tiny}% "scriptsize" is defined by floatrow, "tiny" not
+%\captionsetup{margin=0em,font={ssmall,sf},labelfont={bf},format=hang,singlelinecheck=false} 
+
+% figures centred, smaller font in tables, captions on top for tables
+%\usepackage{floatrow}
+%\DeclareFloatFont{tiny}{\tiny}% "scriptsize" is defined by floatrow, "tiny" not
+%\DeclareFloatFont{ssmall}{\ssmall}
+%\floatsetup[table]{font={footnotesize},position=top}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% end fonts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% For tables spanning the full text width
+%\usepackage{tabularx}
+
+% For URLs use \url{<URL>}
+%\usepackage{url}
+
+% Chapters should have numbers - a typical thesis consists of two chapters:
+% One to introduce and summarize the research ("kappa"), and one for
+% reproductions of the papers and manuscripts. No need to number them by default.
+% If you need chapter numbers back, comment the following line.
+%\renewcommand{\thesection}{\arabic{section}} 
+
+% Sections and subsections have numbers, subsubsections etc do not.
+%\setcounter{secnumdepth}{2}
+
+% Only chapters and sections appear in the table of contents, not subsections etc
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+% not every page needs to go to the same bottom line. Allows nicer page breaks.
+%\raggedbottom
+
+% avoid orphan/widow lines. Lower this number if necessary to get a good layout.
+%\widowpenalty500
+%\clubpenalty500
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define nice headers and footers
+% To keep the thesis non-cluttered we only put the page number into
+% the footer, and avoid headers
+%\usepackage{fancyhdr}
+%\fancyheadoffset{0cm}
+%\pagestyle{plain}
+%page number in the foot centre 
+%\cfoot{\fancyplain{\thepage}{}}
+
+% References should be a section of the summary text, with number and all ...
+%\renewcommand\bibsection{\section{\bibname}\markright{\bibname}}
