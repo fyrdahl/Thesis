@@ -1,188 +1,178 @@
-\documentclass[11pt]{book} 
+\documentclass[11pt,twoside,openright]{book}
+\frontmatter
 \input{tex/preamble.tex}
 
 % ==================================
 % REUSABLE
 % ==================================
 
-\title{Applications of the golden angle in cardiovascular magnetic resonance imaging}
+\title{Applications of the Golden Angle in Cardiovascular MRI}
 
 \newcommand{\myName}{Alexander Fyrdahl}
-\newcommand{\myMainTitle}{Applications of the golden angle in cardiovascular magnetic resonance imaging}
-\newcommand{\thePrinter}{E-Print}
-
-\newcommand{\myOpponent}{Krishna~S.~Nayak}
-\newcommand{\myOpponentDepartment}{Department of Electrical Engineering}
-\newcommand{\myOpponentAffiliation}{University of Southern California}
+\newcommand{\myMainTitle}{\sffamily Applications of the Golden Angle in Cardiovascular MRI}
+\newcommand{\thePrinter}{Eprint AB}
 
 \newcommand{\myCopyrightYear}{2020}
-\newcommand{\myISBNprint}{XXX-XX-XXXX-XXX-X}
-
-\newcommand{\myDefenceDate}{Thursday, 24th of November 2016 at 09:00}
-\newcommand{\myLectureHall}{Lundmark lecture hall (Lundmarksalen)}
-\newcommand{\myFaculty}{Faculty of Science}
-\newcommand{\myDepartment}{Department of Astronomy and Theoretical Physics}
-\newcommand{\myDefenceAnnouncement}{%
-	To be presented, with the permission of the	\myFaculty of Lund
-    University, for public criticism in the \myLectureHall at the
-    \myDepartment on \myDefenceDate.
-}
+\newcommand{\myISBNprint}{978-91-7831-829-2}
 
 % ==================================
 % MAIN DOCUMENT
 % ==================================
 \begin{document}
-\thispagestyle{empty} % no page number
+\thispagestyle{empty}
 \input{tex/frontmatter.tex}
+\cleardoublepage
 % ==================================
 % DEDICATION
 % ==================================
 \newpage
-\thispagestyle{empty} % No page number on quote page
+\thispagestyle{empty}
 ~
 \vspace{140pt}
 \begin{flushright}
-\textit{Dedicated to...}
+%\textit{How do you eat an elephant? One bite at the time.}
+\vfill
+\textit{Dedicated to Heylie and Milla.}
 \end{flushright}
-\cleardoublepage
+\chapter*{Popular science summary}
+\thispagestyle{empty}
+The golden ratio can be found nearly wherever you look, in art and in nature. It is known for its beauty and for lending a sense of harmony to paintings and photographs. Many photographers know of the rule of thirds – that the object should be placed at the two-thirds position of the image. It may not come as a surprise that $3/2$ is an approximation of the golden ratio, and much easier to remember than say $34/21$, which is a slightly better approximation. This is an approximation because the golden ratio is what is known as an irrational number. It begins with $1.618\dots$ and continues with an infinite string of never repeating decimals.
+
+It is perhaps a philosophical question whether nature cares about beauty. Perfection does not exist in nature, yet it works perfectly. A beautiful example of the golden ratio is the arrangements of the petals in a flower. To make sure that the petals don't overlap and shade each other from the sun, they are distributed according to the golden ratio, or more specifically, the golden angle. This way, no matter how many petals there are in the flower, the golden ratio will ensure that each petal gets the most sunlight.
+
+So what does all this have to do with magnetic resonance imaging? As with most things today, it is a matter of efficiency. The scanner creates images based on the properties of hydrogen in the body. By making use of some interesting magnetic properties of the hydrogen nuclei together with strong magnetic fields, one can create a signal that can be picked up by sensitive antennas. To create an image, one wants to encode spatial information into this signal, and this can be done in an infinite number of ways. By learning from nature, and using the golden ratio, one can optimize the collection of signal, similar to how the flower optimizes the collection of the sunlight. This work is focused on using these concepts and applying them to problems in cardiovascular magnetic resonance imaging, such as finding clots in the vessels of the lungs, how to diagnose heart failure, or how to acquire three-dimensional images of the beating heart.
+
+\chapter*{Populärvetenskaplig sammanfatting}
+\thispagestyle{empty}
+Det gyllene snittet finns nästan överallt en letar, både inom konsten och naturen. Det är känt för att inge en känsla av harmoni i målningar och fotografier. Många fotografer har hört talas om tredjedelsregeln – att objektet ska placeras två tredjedelar från bildens kant. Det är därför föga överaskande att $3/2$ är en uppskattning av det gyllene snittet, och något enklare att minnas än $34/21$ som är en något bättre uppskattning. Det är endast en uppskattning eftersom att det gyllene snittet är ett irrational tal. Det börjar med $1.618\dots$ och fortsätter sedan med en oändligt antal decimaler utan upprepning.
+
+Det må vara en filosofisk fråga hurvida naturen bryr sig om skönhet. Perfektion existerar inte i naturen, ändå fungerar den perfekt. Ett vackert exempel på det gyllene snittet är spridningen av kronbladen på en blomma. För att kronbladen inte ska skugga solen för varandra så sprider de ut sig enligt det gyllene snittet, eller mer specifikt, den gyllene vinkeln. På så sätt spelar det ingen roll hur många kronblad blomman har, det gyllene snittet ser till att varje kronblad får så mycket sol som möjligt.
+
+Så vad har allt detta att göra med magnetresonanstomografi? Precis som med så mycket idag, är det en fråga om effektivitet. Magnetkameran skapar en bild baserat på magnetiska egenskaper hos väte i kroppen. Genom att använda några mycket intressanta magnetiska egenskaper hos vätekärnan, tillsammans med starka magnetfält kan en skapa en signal som kan fångas in av känsliga antenner. För att skapa en bild måste en bädda in spatial information i denna signal, vilket kan göras på ett nära oändligt antal sätt. Genom att lära från naturen, och använda det gyllene snittet, kan en samla in signalen på ett sätt som liknar hur blommorna maximerar sin insamling av solljus. Den här avhandlingen fokuserar på hur en kan använda dessa koncept och applicera dem på magnetresonanstomografi av hjärtat, för att exempelvis finna blodproppar i lungkärlen, diagnosticera hjärtsvikt, eller för att samla in tredimensionella bilder av hjärtat medan det slår.
+
+% ==================================
+% ABSTRACT
+% ==================================
+\chapter*{Abstract}
+\thispagestyle{empty}
+The use of radial trajectories has been seen as a potential solution to highly efficient cardiovascular magnetic resonance imaging (MRI). By acquiring a broad range of spatial frequencies per repetition time, the acquisition is time-efficient and robust against motion. Of particular interest is the golden angle profile order, which promises a near-uniform k-space coverage for an arbitrary number of readouts, enabling flexible data resorting, which is critical for efficient cardiovascular MRI.
+
+In \textbf{Study I} the use of 2D golden angle profile ordering is explored for imaging pulmonary embolisms. The insensitivity to motion and flow is used to reduce the artifacts that otherwise degrade images of the pulmonary vasculature when imaging with thin slices. It was found that the proposed technique could improve the image quality. Another source of artifacts arises when gradients are rapidly switched, and local induction of eddy currents may perturb spin equilibrium. In \textbf{Study II}, we propose a generalized golden angle profile orderings in 3D which reduces eddy-current artifacts. We demonstrate the efficacy of our generalization through numerical simulations, phantom imaging and imaging of a healthy volunteer. In \textbf{Study III} an improved 2D golden angle profile ordering was explored which resulted in a higher degree of k-space uniformity after physiological binning. This novel profile ordering was used in combination with a phase-contrast readout to enable quantification of myocardial tissue velocity and transmitral blood flow velocity, which are essential parameters for diastolic function assessment. When compared to echocardiography, it was found that MRI could accurately quantify myocardial tissue velocity, whereas transmitral blood flow velocity was underestimated. \textbf{Study IV} explored a further development of Study III by proposing a 3D version of the improved profile ordering. This novel ordering was used to acquire whole-heart functional images during free-breathing in less than one minute.
+
+Together, these results indicate that golden-angle-based imaging has the potential to improve cardiovascular MRI in several areas.
+\begingroup
+\let\cleardoublepage\clearevenpage
+% ==================================
+% LIST OF PUBLICATIONS
+% ==================================
+\chapter*{List of papers in this thesis}
+\thispagestyle{empty}
+\begin{enumerate}[I.]
+\item \textbf{Fyrdahl A}, Vargas--Paris R, Nyrén S, Holst K, Ugander M, Lindholm P, Sigfridsson A. Pulmonary artery imaging under free-breathing using golden-angle radial bSSFP MRI: a proof of concept. \textit{Magn Reson Med.} 2018;80(5):1847--1856
+\item \textbf{Fyrdahl A}, Holst K, Caidahl K, Ugander M, Sigfridsson A. Generalization of Three-Dimensional Golden-Angle Radial Acquisition to Reduce Eddy Current Artifacts in bSSFP Imaging. \textit{Submitted}
+\item \textbf{Fyrdahl A}, Ramos JG, Eriksson MJ, Caidahl K, Ugander M, Sigfridsson A. Sector-wise golden-angle (SWIG) phase contrast with high temporal resolution for evaluation of left ventricular diastolic dysfunction. \textit{Magn Reson Med.} 2020;83(4):1310--1321
+\item \textbf{Fyrdahl A}, Ramos JG, Ugander M, Sigfridsson A. Three-dimensional sector-wise golden-angle (3D-SWIG) – Improved k-space uniformity after ECG binning compared to conventional 3D golden-angle profile ordering. \textit{Submitted}
+\end{enumerate}
+\endgroup
+\clearpage
 
 % ==================================
 % TABLE OF CONTENTS
 % ==================================
-\setcounter{page}{1} % Page Roman 1 of the frontmatter
-\setcounter{tocdepth}{1}
+\thispagestyle{empty}
+%\setcounter{page}{1} % Page Roman 1 of the frontmatter
+\setcounter{tocdepth}{3}
+\pagestyle{empty}
 \tableofcontents
+\clearpage
+\pagestyle{plain}
 % no page number on toc page:
 \addtocontents{toc}{\protect\thispagestyle{empty}}
-% ==================================
-% LIST OF PUBLICATIONS
-% ==================================
-\newpage
-\chap{List of publications}
-This thesis is based on the following publications:
-\vspace{6mm}
-
-\begin{tabular}{ll}
-1   & \textbf{Pulmonary artery imaging under free-breathing using}\\
-    & \textbf{golden-angle radial bSSFP MRI: a proof of concept}\\[2mm]
-    & \textbf{A.~Fyrdahl}, R.~Vargas–Paris, S.~Nyrén, K.~Holst,\\
-    & M.~Ugander, P.~Lindholm, A.~Sigfridsson \\
-    & \textit{Magn Reson Med.}~2018;80(5):1847–1856\\[6mm]
-2   & \textbf{Sector-wise golden-angle (SWIG) phase contrast with}\\
-    & \textbf{high temporal resolution for evaluation of left}\\
-    & \textbf{ventricular diastolic dysfunction}\\[2mm]
-    & \textbf{A.~Fyrdahl}, J.~G.~Ramos, M.~J.~Eriksson, K.~Caidahl,\\
-    & M.~Ugander, A.~Sigfridsson \\
-    & \textit{Magn Reson Med.}~2018;80(5):1847–1856\\[6mm]
-\end{tabular}
-% ==================================
-% POPULAR SUMMARY (ENGLISH)
-% ==================================
-\newpage
-\chap{Popular summary}
-
-\blindtext
-% ==================================
-% POPULAR SUMMARY (SWEDISH)
-% ==================================
-\chap{Populärvetenskaplig sammanfattning}
-
-\blindtext
 
 
-% ==================================
-% ACKNOWLEDGMENTS
-% ==================================
-\newpage
-\chap{Acknowledgements}
+{\clearpage
+\pagestyle{empty}
+\renewcommand{\thepage}{}
+\printnomenclature
+\clearpage}
+\nomenclature{1D}{One-Dimensional}
+\nomenclature{2D}{Two-Dimensional}
+\nomenclature{3D}{Three-Dimensional}
+%\nomenclature{XD}{Extra-Dimensional}
+\addtocontents{toc}{\protect\thispagestyle{empty}}
 
-\blindtext
+
 % ==================================
 % RESET SETTINGS
 % ==================================
 \mainmatter           % Page numbers arabic 
-\setcounter{table}{0} % Reset table counters to not count the publications table
-%\setcounter{page}{1}  % Rest page counters, this is where it all starts!
-
-
-
-% ==================================
-% PART I: RESEARCH CONTEXT
-% ==================================
-%
-% Start page numbering with the "Chapter 1" page.
-%
-\pagenumbering{gobble}
-\part{Research context}
+\setcounter{table}{0} % Reset table counters to not count 
 \pagenumbering{arabic}
-
-
-
-% ==================================
-% CHAPTER: GENERAL INTRO
-% ==================================
 \setcounter{page}{1}  % Rest page counters, this is where it all starts!
-\chapter{Introduction}
+ 
+% ==================================
+% CHAPTERS GOES HERE
+% ==================================
 
-This sentence has a couple of citations so that the ``References'' section doesn't come out empty \citep{Carrera_2015,Carrera_2016}. Insert all your BibTeX references in \texttt{references.bib}
+\include{chapters/introduction}
+\include{chapters/physiology}
+\include{chapters/imaging}
+\include{chapters/cardiac}
+\include{chapters/golden_angle}
+\include{chapters/aims}
+\include{chapters/methods}
+\include{chapters/results}
+\include{chapters/discussion}
+\include{chapters/conclusions}
 
-\blindtext
-
-
+\clearpage
 
 % ==================================
-% CHAPTER: ZOOM-IN TO MY SUB-FIELD
+% ACKNOWLEDGMENTS
 % ==================================
-\chapter{More background about my work}
+\backmatter
+\chap{Acknowledgements}
+I would like to acknowledge my principal supervisor \textbf{Andreas Sigfridsson}. I have thoroughly enjoyed learning from you. Over the years, \textbf{Andreas} and I have developed a tendency to brainstorm during regular conversations. We rarely take notes, but the good ideas get separated from the bad through a process of natural selection. I profusely apologize to anyone who has been caught in the crossfire.
+
+I would also like to acknowledge my co-supervisor \textbf{Martin Ugander} as well as Professors \textbf{Kenneth Caidahl} and \textbf{Henrik Engblom} for their exemplary mentorship. \textbf{Martin} might not have been as involved in the nitty-gritty, but his presence is felt all through this thesis. \textbf{Kenneth} has been watching over the process and generously shared his experience. \textbf{Henrik} has been a late addition to the team, but our discussions so far have been tremendously helpful. 
+
+A special dedication goes out to the current and former members of the Karolinska CMR Group. In addition to those above, I would like to mention, in no particular order; \textbf{Karen Holst}, \textbf{Jannike Nickander}, \textbf{Björn Wieslander}, \textbf{Magnus Lundin}, \textbf{Simon Thalén}, \textbf{João Ramos}, \textbf{Maren Maanja}, \textbf{Raquel Themudo}, \textbf{Peder Sörensson}, \textbf{Eva Maret}, \textbf{Jenny Rasck}, \textbf{Sofie Olsson}, \textbf{Márcia Ferreira}, \textbf{Elina Malkeshi}, \textbf{Rebecca Almqvist}, \textbf{Mariana Soares}, \textbf{Mahmood Farasati}, \textbf{Goran Abdula}, \textbf{Fredrika Fröjdh}, \textbf{Daniel Loewenstein} and \textbf{Johan von Scheele}.
+
+I extend a special thanks to; \textbf{Jannike}, who has the highest SNR of any person I have ever met. We all know it, but I'm willing to put it in writing; You will go far! \textbf{Karen}, who showed me the ropes and mentored me in my early days as a master student and helped me hit the ground running. \textbf{Jenny}, who was the one who first taught me how to operate an MRI scanner. \textbf{João}, for being my main collaborator on so many projects and for being part of the final sprint of the thesis writing together with \textbf{Maren} and \textbf{Magnus}. You all have offered a great deal of moral support.
+\clearpage
+Moreover, I would like to thank everyone that contributed as co-authors to the papers included in this thesis and has not already been mentioned; \textbf{Roberto Vargas Paris}, \textbf{Maria Eriksson}, \textbf{Peter Lindholm} and \textbf{Sven Nyrén}. \textbf{Maria} has shown great trust in me, which has helped my professional career. \textbf{Peter} has been a mentor for me in many ways. For that, I owe them both my gratitude.
 
 
-\blindtext
+There are lots of people who haven't been directly involved in the writing of this thesis, but that have made a lasting impression in one way or another. To them, I would like to extend my sincerest thank you.
 
+To my co-authors on the papers that didn't make in into this thesis, in particular \textbf{Koshiar Medson}, \textbf{Deepa Gopalan}, \textbf{Ursula Reiter}, \textbf{Gert Reiter}, \textbf{Ning Jin}, \textbf{Mikael Melin}, \textbf{Patrik Sundblad}, \textbf{Viktoria Skott} and \textbf{Susanne Rysz}.
 
+To my scientific role model, \textbf{Peter Kellman}.
 
-% ==================================
-% CHAPTER: SUMMARIZE MY WORK
-% ==================================
-\chapter{This work}
+To the people in the industry that I have had the pleasure to work with. In particular \textbf{Frederik Testud}, \textbf{Kelvin Chow} and \textbf{Davide Piccini}. A honorable mention to the service engineers who mostly believed me when I told them something was wrong with the scanner, but never once blamed me for causing it; \textbf{Denny Hägg}, \textbf{Marko Sinadinovic}, \textbf{Michel Ten Heggeler} and \textbf{Akal Yehualashet}.
 
+To the people I have met through conferences and travels, in particular \textbf{Johannes Töger}, \textbf{Kerstin Hammernik} and \textbf{John Heerfordt}.
 
-\blindtext
+To all my teachers. To all my students, and in particular the ones I have had the pleasure to supervise; \textbf{Reenalyn Borromeo}, \textbf{Emil Olsson}, \textbf{Rebecka Herterich}, \textbf{Anna Sumarokova}, \textbf{Adham Belbaisi}, \textbf{Max Kim} and \textbf{Amanda Ullvin}.
 
+To \textbf{Elina Renhorn} for standing beside me with your never-ending support.
+
+To my mother \textbf{Kerstin}, my father \textbf{Thomas} and my brother \textbf{Michael}.
+
+To my nieces \textbf{Heylie} and \textbf{Milla} to whom this thesis is dedicated.
+\newpage
 
 % ==================================
 % CHAPTER: REFERENCES
 % ==================================
-\bibliographystyle{aa}
+\bibliographystyle{vancouver}
 \bibliography{references}  % Link to bibtex file
-
-
+\end{document}
 % ==================================
 % PART II: RESEARCH PAPERS
 % ==================================
-%\thispagestyle{empty}
-\pagenumbering{gobble}
-\part{Research Papers}
-
-% ==================================
-% CHAPTER: AUTHOR CONTRIBUTIONS
-% ==================================
-\chap{Author contributions}
-
-The next pages summarize my contribution to each paper included in this thesis.
-
 \newpage
-
-% ----------------------------------- %
-% PAPER I
-% ----------------------------------- %
-\section*{Paper I:\\How to form planetesimals from mm-sized chondrules and chondrule aggregates}
-
-\textbf{D.~Carrera}, A.~Johansen, M.B.~Davies (2015) \\
-Astronomy \& Astrophysics, vol.~579, A43 (20 p.)\\[6mm]
-
-Anders Johansen provided the original project idea. I ran the computer simulations and performed the analysis. I developed the methodology, derived from the Kolmogorov-Smirnov test, to identify long-lived particle clumps. I also contributed the idea and the methodology to extrapolate the Maxwell-Boltzmann distribution to small scales in order to constrain the particle collisions speeds inside the filaments.
-
-
+\pagenumbering{gobble}
 
 % ==================================
 % INSERT PAPERS
@@ -192,17 +182,44 @@ Anders Johansen provided the original project idea. I ran the computer simulatio
 % ------------------
 % PAPER I
 % ------------------
-\cleardoublepage
-\addcontentsline{toc}{section}{Paper I: How to form planetesimals from mm-sized chondrules and chondrule aggregates}
 \thispagestyle{empty}
-\vspace*{2cm}  % IMORTANT: Increase by 2cm each time.
-\hfill{ 
-	\fontsize{20}{30}
-	\selectfont {\bf Paper I}
-}
-\marginpar{\rule[-4mm]{50mm}{14mm}} % Change the Roman number here
+\vspace*{2cm}  % IMPORTANT: Increase by 2cm each time.
+\hfill{}
+\marginpar{\rulebox{I}} % Change the Roman number here
 \vfill
 \cleardoublepage
-%\includepdf[pages=-,width=1.25\textwidth,pagecommand={\thispagestyle{plain}}]{papers/Fyrdahl_et_al-2018-Magnetic_Resonance_in_Medicine.pdf}
+%\includepdf[pages=-,width=\textwidth,pagecommand={\thispagestyle{plain}},clip,viewport=53 56 560 774]{papers/Fyrdahl_et_al-2018-Magnetic_Resonance_in_Medicine.pdf}
 
+% ------------------
+% PAPER II
+% ------------------
+\thispagestyle{empty}
+\vspace*{4cm}  % IMORTANT: Increase by 2cm each time.
+\hfill{}
+\marginpar{\rulebox{II}} % Change the Roman number here
+\vfill
+\cleardoublepage
+%\includepdf[pages=-,width=1.25\textwidth,pagecommand={\thispagestyle{plain}}]{papers/Study_II_Manuscript.pdf}
+
+% ------------------
+% PAPER III
+% ------------------
+\thispagestyle{empty}
+\vspace*{6cm}  % IMPORTANT: Increase by 2cm each time.
+\hfill{}
+\marginpar{\rulebox{III}} % Change the Roman number here
+\vfill
+\cleardoublepage
+%\includepdf[pages=-,width=1.0\textwidth,pagecommand={\thispagestyle{plain}},clip,viewport=44 43 552 762]{papers/Fyrdahl_et_al-2019-Magnetic_Resonance_in_Medicine.pdf}
+
+% ------------------
+% PAPER IV
+% ------------------
+\thispagestyle{empty}
+\vspace*{8cm}  % IMPORTANT: Increase by 2cm each time.
+\hfill{}
+\marginpar{\rulebox{IV}} % Change the Roman number here
+\vfill
+\cleardoublepage
+%\includepdf[pages=-,width=1.25\textwidth,pagecommand={\thispagestyle{plain}}]{papers/Study_IV_Manuscript.pdf}
 \end{document}

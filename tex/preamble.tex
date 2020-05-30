@@ -4,27 +4,42 @@
 
 % Make \cleardoublepage insert an empty page without a page number.
 \usepackage{emptypage} 
-\usepackage{blindtext}	% For "Lorem Ipsum" style place holders
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{graphicx}	% For \includegraphics
 \usepackage{amsfonts}	% Math symbols
 \usepackage{amsmath}	% Math symbols
 \usepackage{amssymb}	% Math symbols
 \usepackage{pdfpages}	% To include the PDFs of the papers
 \usepackage{natbib}		% Reference in style of Natural Sciences
-\usepackage{moresize}	% Additional font sizes \HUGE and \ssmal.
+\setcitestyle{square,numbers}
+\usepackage{moresize}	% Additional font sizes \HUGE and \ssmall.
 \usepackage{parskip}
 \usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{xcolor}
+\usepackage{braket}
+\usepackage[para,online,flushleft]{threeparttable}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage{commath}
+\usepackage{tikz}
+
 %\usepackage{pageslts}  % To calculate the total number of pages
+\usepackage{nomencl}
+\renewcommand{\nomname}{Abbreviations}
+\makenomenclature
 
 % ==================================
 % PAGE SIZE -- G5 OR E5
 % ==================================
 
 % G5 format (larger)
-%\usepackage[paperwidth=169mm,paperheight=239mm,total={13.3cm,19.6cm}, top=1.8cm, ignorehead, centering, footskip=\footskip+4mm ]{geometry}
+\usepackage[paperwidth=169mm,paperheight=239mm,total={13.3cm,19.6cm}, top=1.8cm, ignorehead, footskip=\footskip+4mm]{geometry}
 
 % E5 format (smaller)
-\usepackage[paperwidth=155mm,paperheight=220mm,total={12cm,18cm}, top=1.8cm, ignorehead, centering, footskip=\footskip+4mm ]{geometry}
+%\usepackage[paperwidth=155mm,paperheight=220mm,total={12cm,18cm}, top=1.8cm, ignorehead, centering, footskip=\footskip+4mm ]{geometry}
 
 
 % ==================================
@@ -35,6 +50,7 @@
 \usepackage[no-math]{fontspec}
 \usepackage{xunicode}
 \usepackage{xltxtra}
+\usepackage{lmodern}
 \AtBeginEnvironment{tabular}{\addfontfeatures{Numbers={Monospaced}}}
 
 %
@@ -55,7 +71,7 @@
 %  ItalicFont=*-Italic,
 %  BoldItalicFont=*-Italic,
 %]{AGaramondPro}
-%\setsansfont{[FrutigerLTStd-Light.otf]}
+\setsansfont{[FrutigerLTStd-Light.otf]}
 %\setmathfont(Greek,Digits,Latin){[AGaramondPro-Italic.otf]}
 
 % mathspec is broken. The next eight lines work around that.
@@ -68,6 +84,7 @@
 }
 \makeatother
 
+\newcommand\Nomenclature[2]{\nomenclature[#2]{#1}{#2}}
 
 % ==================================
 % CHAPTERS, SECTIONS, SUBSECTIONS WITHOUT NUMBERS
@@ -90,29 +107,41 @@
   \addcontentsline{toc}{subsection}{#1}
 }
 
-
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\huge\bfseries}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\sffamily\Large\bfseries}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\sffamily\bfseries}
+  {\thesubsection}{1em}{}
+  
 % ------------------------------------------------- %
 % ------------------------------------------------- %
+\hbadness=10000
+\hfuzz=50pt
 % ------------------------------------------------- %
 % ------------------------------------------------- %
 
 % Must come in the beginning. Changes the spacing in the table of contents to look more pleasing
-%\usepackage{tocloft}
-%\setlength{\cftbeforepartskip}{5.0mm}
-%\setlength{\cftbeforechapskip}{2.0mm}
-%\setlength{\cftbeforesecskip}{0.0mm}
+\usepackage{tocloft}
+\setlength{\cftbeforepartskip}{5.0mm}
+\setlength{\cftbeforechapskip}{2.0mm}
+\setlength{\cftbeforesecskip}{0.0mm}
 
 % figure captions in bold (i.e. "Figure 1" in bold), sans serif, smaller font size, hanging label, always starting on the left side
-%\usepackage{subfig}
-%\DeclareCaptionFont{ssmall}{\ssmall}
-%\DeclareCaptionFont{tiny}{\tiny}% "scriptsize" is defined by floatrow, "tiny" not
-%\captionsetup{margin=0em,font={ssmall,sf},labelfont={bf},format=hang,singlelinecheck=false} 
+\usepackage{subfig}
+\DeclareCaptionFont{small}{\small}
+\DeclareCaptionFont{tiny}{\tiny}% "scriptsize" is defined by floatrow, "tiny" not
+\captionsetup{margin=0em,font={small},labelfont={bf},format=hang,singlelinecheck=false} 
 
 % figures centred, smaller font in tables, captions on top for tables
-%\usepackage{floatrow}
-%\DeclareFloatFont{tiny}{\tiny}% "scriptsize" is defined by floatrow, "tiny" not
-%\DeclareFloatFont{ssmall}{\ssmall}
-%\floatsetup[table]{font={footnotesize},position=top}
+\usepackage{floatrow}
+\DeclareFloatFont{tiny}{\tiny}% "scriptsize" is defined by floatrow, "tiny" not
+\DeclareFloatFont{ssmall}{\ssmall}
+\floatsetup[table]{font={footnotesize},position=top}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% end fonts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % For tables spanning the full text width
@@ -131,26 +160,88 @@
 %\setcounter{secnumdepth}{2}
 
 % Only chapters and sections appear in the table of contents, not subsections etc
-%\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 % not every page needs to go to the same bottom line. Allows nicer page breaks.
-%\raggedbottom
+\raggedbottom
 
 % avoid orphan/widow lines. Lower this number if necessary to get a good layout.
-%\widowpenalty500
-%\clubpenalty500
-
-
+\widowpenalty500
+\clubpenalty500
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define nice headers and footers
 % To keep the thesis non-cluttered we only put the page number into
 % the footer, and avoid headers
-%\usepackage{fancyhdr}
-%\fancyheadoffset{0cm}
-%\pagestyle{plain}
+\usepackage{fancyhdr}
+\fancyheadoffset{0cm}
+\pagestyle{plain}
 %page number in the foot centre 
-%\cfoot{\fancyplain{\thepage}{}}
+\cfoot{\fancyplain{\thepage}{}}
 
 % References should be a section of the summary text, with number and all ...
-%\renewcommand\bibsection{\section{\bibname}\markright{\bibname}}
+\renewcommand\bibsection{\chap{\bibname}\markright{\bibname}}
+
+\hbadness=10000
+\hfuzz=50pt
+
+\graphicspath{ {./img/} }
+
+\newcommand\rulebox[1]{%
+    \begingroup
+    \fontsize{20}{30}
+    \selectfont{
+        \bf
+        \colorbox{black}{\makebox[\marginparwidth/2 - \marginparsep][c]{\strut\textcolor{white}{#1}}}
+    }
+    \endgroup
+}
+
+\makeatletter
+\newcommand*{\clearevenpage}{%
+  \clearpage
+  \if@twoside
+    \ifodd\c@page
+      \hbox{}%
+      \newpage
+      \if@twocolumn
+        \hbox{}%
+        \newpage
+      \fi
+    \fi
+  \fi
+}
+\makeatother
+\usepackage{colortbl}%
+  \newcommand{\myrowcolor}{\rowcolor[gray]{0.925}}%
+  \newcommand{\mydarkrowcolor}{\rowcolor[gray]{0.825}}
+
+\makeatletter
+\AtBeginEnvironment{table}{%
+  \renewcommand{\arraystretch}{1.25}%
+  \setlength{\arrayrulewidth}{1\p@}%
+}
+
+\makeatother
+
+\makeatletter
+\g@addto@macro\normalsize{%
+  \setlength\abovedisplayskip{\baselineskip}%
+  \setlength\belowdisplayskip{\baselineskip}%
+  \setlength\abovedisplayshortskip{\baselineskip}%
+  \setlength\belowdisplayshortskip{\baselineskip}%
+}
+\makeatother
+
+\newcommand{\gammabar}{\ensuremath\gamma\kern-1.5ex-}
+\newcommand{\gammabarb}{\ensuremath\gamma\kern-1.5ex\text{\raisebox{-0.5ex}{$-$}}}
+\newcommand{\gbar}{\begin{tikzpicture}[
+anchor=base, baseline, 
+inner sep=0pt,  
+outer sep=0pt, 
+]
+\node[](A) {$\gamma$};
+\draw[shorten >=0.0pt, shorten <=0.25pt] ([yshift=-0.5pt]A.west) to ([yshift=-0.5pt]A.east);
+\end{tikzpicture}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
